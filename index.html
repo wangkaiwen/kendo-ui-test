@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华彬集团</title>
+    <link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scripts/kendoui/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="scripts/kendoui/styles/kendo.bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/weiui/weui.min.css">
+    <link rel="stylesheet" href="styles/themebase/css/base.css">
+    <link rel="stylesheet" href="styles/themebase/css/bootstrapSelf.css">
+    <link rel="stylesheet" href="styles/themebase/css/kendoSelf.css">
+    <link rel="stylesheet" href="styles/themebase/css/weuiSelf.css">
+    <link rel="stylesheet" href="styles/css/index.css">
+    <link rel="stylesheet" href="styles/css/common.css">
+    <script src="scripts/jquery/base/jquery-1.11.3.min.js"></script>
+    <script src="scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="scripts/kendoui/js/kendo.all.min.js"></script>
+    <script src="scripts/kendoui/js/kendo.messages.zh-CN.js"></script>
+    <script src="scripts/kendoui/js/kendo.culture.zh-CN.min.js"></script>
+    <script>
+        kendo.culture("zh-CN");
+    </script>
+    <script src="scripts/student.js"></script>
+</head>
+<body>
+<header>
+        <img src="styles/themebase/image/top_logo.jpg"  class="top_left img-responsive">
+        <img src="styles/themebase/image/top_system_title.png" class="top_mid img-responsive">
+        <img src="styles/themebase/image/top_decorate_man.png.jpg" class="top_right img-responsive">
+</header>
+<div class="main">
+    <div class="page_wrap main_top">
+        <span class="title">会议列表</span>
+        <button type="button" class="btn btn-success" id="add_meeting"><span class="glyphicon glyphicon-plus"></span>  添加会议</button>
+    </div>
+    <div class="main_mid page_wrap container-fluid">
+        <div class="row">
+            <div class="input-group col-lg-2 col-md-12">
+                <span class="input-group-addon" id="basic-addon1">会议名称</span>
+                <input type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group col-lg-2  col-md-12 ">
+                <span class="input-group-addon" id="basic-addon2">主持人</span>
+                <input type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group col-lg-3  col-md-12">
+                <span class="input-group-addon">会议时间(起)</span>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="start_time">
+            </div>
+            <div class="input-group col-lg-3  col-md-12">
+                <span class="input-group-addon" id="basic-addon4">会议时间(止)</span>
+                <input type="text" class="form-control" aria-describedby="basic-addon1" id="end_time">
+            </div>
+            <div id="calendar" style="display: none"></div>
+            <div class="input-group col-lg-1  col-md-12" >
+                <button type="button" class="btn btn-primary" style="margin: 0 auto;display: block"><span class="glyphicon glyphicon-search"></span> 查询搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="main_bottom">
+        <table id="grid" role="grid">
+            <colgroup>
+                <col class="meeting_time" />
+                <col class="meeting_message"/>
+                <col class="meeting_code"/>
+                <col class="meeting_status"/>
+                <col class="command"/>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>
+                   会议时间
+                </th>
+                <th>
+                   会议信息
+                </th>
+                <th>
+                   验证码
+                </th>
+                <th>
+                   状态
+                </th>
+                <th>
+                   操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+            <script id="rowTemplate" type="text/x-kendo-tmpl">
+	             <tr data-uid="#: uid #">
+		            <td class="meeting_time">
+                        <span class="time_date"> #: time.date # </span>
+                        <span class="time_weekday">#: time.weekday # </span>
+		            </td>
+		            <td class="meeting_message">
+                       <span class="message_title">#:message.title#</span>
+		              <div class="container-fluid">
+		                  <p class="row">
+		                    <span class="message_left   col-md-6">主持人：#: message.more.host#</span>
+		                    <span class="message_mid  col-md-6">会议时间：#: message.more.meeting_time#</span>
+		                    <span class="message_right col-md-6">会议地点：#:message.more.place#</span>
+		                    <span class="message_left col-md-6">管理员：#: message.more.person#</span>
+		                    <span class="message_mid   col-md-6">发布时间：#: message.more.release_time#</span>
+		                    <span class="message_right   col-md-6">更新时间：#:message.more.update_time#</span>
+		                  </p>
+		              </div>
+		            </td>
+                    <td class="meeting_code">
+			            #: code #
+		            </td>
+		            <td class="meeting_status">
+		               #:status #
+		            </td>
+		           <td class="command" >
+                        <button class="k-button"> <span class="glyphicon glyphicon-search"></span> 查看</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看评论</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看统计</button>
+                        <button class="k-grid-delete k-button"> <span class="glyphicon glyphicon-remove"></span> 删除</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看心得</button>
+                        <button class="k-button" id="hudong"> <span class="glyphicon glyphicon-share-alt"></span> 互动墙</button>
+		            </td>
+	           </tr>
+            </script>
+            <script id="altRowTemplate" type="text/x-kendo-tmpl">
+	            <tr class="k-alt" data-uid="#: uid #">
+		             <td class="meeting_time">
+                        <span  class="time_date">#: time.date # </span>
+                        <span class="time_weekday">#: time.weekday # </span>
+		            </td>
+		            <td class="meeting_message">
+                       <span class="message_title">#:message.title#</span>
+		                <div class="container-fluid">
+		                 <p class="row">
+		                    <span class="message_left col-lg-2 col-md-6">主持人：#: message.more.host#</span>
+		                    <span class="message_mid col-lg-5 col-md-6">会议时间：#: message.more.meeting_time#</span>
+		                    <span class="message_right col-lg-4 col-md-6">会议地点：#:message.more.place#</span>
+		                    <span class="message_left col-lg-2 col-md-6">管理员：#: message.more.person#</span>
+		                    <span class="message_mid  col-lg-5 col-md-6">发布时间：#: message.more.release_time#</span>
+		                    <span class="message_right col-lg-4  col-md-6">更新时间：#:message.more.update_time#</span>
+		                  </p>
+		              </div>
+		            </td>
+                    <td class="meeting_code">
+			            #: code #
+		            </td>
+		            <td class="meeting_status">
+		               #:status #
+		            </td>
+		            <td class="command" >
+                        <button class="k-button"> <span class="glyphicon glyphicon-search"></span> 查看</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看评论</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看统计</button>
+                        <button class="k-grid-delete k-button"> <span class="glyphicon glyphicon-remove"></span> 删除</button>
+                        <button class="k-button"> <span class="glyphicon glyphicon-share-alt"></span> 看心得</button>
+                        <button class="k-button"  id="hudong"> <span class="glyphicon glyphicon-share-alt"></span> 互动墙</button>
+		            </td>
+	           </tr>
+            </script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url:'http://api.map.baidu.com/location/ip?ak=aeCVcOeYm0QWHSPAp40lnKx0&coor=bd09ll',
+            dataType:'jsonp',
+            success: function (data) {
+                console.log(data.content);
+                var x=data.content.point.x-0.0606;
+                var y=data.content.point.y-0.0572;
+                $.ajax({
+                    url:'http://api.map.baidu.com/geocoder/v2/?ak=aeCVcOeYm0QWHSPAp40lnKx0&callback=renderReverse&location='+y+','+x+'&output=json&pois=1',
+                    dataType:'jsonp',
+                    success: function (adress) {
+                        //console.log(adress.result);
+                        $('.title').html(adress.result.formatted_address);
+                        var business=adress.result.business;
+                        console.log(business.split(','));
+                        var position=adress.result.pois;
+                        console.log(position[0])
+                    }
+                })
+            }
+        });
+
+
+        $("#calendar").kendoCalendar();
+        var calendar = $("#calendar").data("kendoCalendar");
+        calendar.value(new Date());
+        $("#start_time").kendoDatePicker({
+            change: function(){
+                calendar.value($("#start_time").val());
+            }
+        });
+        $("#end_time").kendoDatePicker({
+            change: function () {
+                calendar.value($("#end_time").val());
+            }
+        });
+
+
+
+        $("#grid").kendoGrid({
+            dataSource: {
+                data:meeting,
+                pageSize: 20
+            },
+            editable: {
+                update: false,
+                confirmation: function(e) {
+                    return  "确定要删除?";
+                }
+            },
+            height: 550,
+            rowTemplate: kendo.template($("#rowTemplate").html()),
+            altRowTemplate: kendo.template($("#altRowTemplate").html()),
+            filterable: true,
+            columnMenu: true,
+//            groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5,
+                messages: {
+                    display: "显示条目 {0} - {1}  共 {2} ",
+                    empty: "没有数据",
+                    itemsPerPage: "条每页"
+                }
+            }, columns: [
+                { field: "time" ,width:110},
+                { field: "message"},
+                { field: "code",width:100},
+                { field: "status",width:100},
+                { command: "destroy",width:300}
+            ]
+
+        });
+    });
+
+    $(function () {
+        $("#add_meeting").click(function () {
+            location.href="add.html";
+        });
+        $("#hudong").click(function () {
+            location.href="hudong.html";
+        })
+    })
+
+
+</script>
+</body>
+</html>

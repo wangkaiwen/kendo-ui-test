@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华彬集团</title>
+    <link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scripts/kendoui/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="scripts/kendoui/styles/kendo.bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/weiui/weui.min.css">
+    <link rel="stylesheet" href="styles/themebase/css/base.css">
+    <link rel="stylesheet" href="styles/themebase/css/bootstrapSelf.css">
+    <link rel="stylesheet" href="styles/themebase/css/kendoSelf.css">
+    <link rel="stylesheet" href="styles/themebase/css/weuiSelf.css">
+    <link rel="stylesheet" href="styles/css/common.css">
+    <link rel="stylesheet" href="scripts/ztree/zTreeStyle.css">
+    <link rel="stylesheet" href="styles/css/add.css">
+    <script src="scripts/jquery/base/jquery-1.11.3.min.js"></script>
+    <script src="scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="scripts/kendoui/js/kendo.all.min.js"></script>
+    <script src="scripts/ztree/jquery.ztree.all-3.5.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="styles/themebase/image/top_logo.jpg"  class="top_left img-responsive">
+        <img src="styles/themebase/image/top_system_title.png" class="top_mid img-responsive">
+        <img src="styles/themebase/image/top_decorate_man.png.jpg" class="top_right img-responsive">
+    </header>
+    <div class="main clearfix">
+        <div class="page_wrap main_top">
+            <a href="index.html" class="title"><span class="title">会议列表</span></a>
+            <span>&gt;</span>
+            <span class="index_level">会议维护</span>
+        </div>
+        <div class="main_mid">
+            <form action="">
+                <div class="content container-fluid">
+                    <h3 class="caption">基本信息</h3>
+                    <div class="con row base">
+                        <div class="meeting_name col-lg-3 page_wrap">
+                            <p class="input_top"><span class="star">*</span>会议名称</p>
+                            <input type="text" class="input_mid form-control">
+                            <p class="input_bottom"><span class="star">*</span>小于30字</p>
+                        </div>
+                        <div class="meeting_time col-lg-3">
+                            <p class="input_top"><span class="star">*</span>会议时间</p>
+                            <div class="input-group input_mid page_wrap">
+                                <input type="text" class="form-control" aria-describedby="basic-addon2" id="datetimepicker">
+                            </div>
+                            <div id="calendar" style="display: none"></div>
+                        </div>
+                        <div class="host col-lg-3 page_wrap">
+                            <p class="input_top"><span class="star">*</span>主持人</p>
+                            <input type="text" class="input_mid form-control">
+                            <p class="input_bottom"><span class="star">*</span>小于30字</p>
+                        </div>
+                        <div class="place col-lg-3 page_wrap">
+                            <p class="input_top"><span class="star">*</span>会议地点</p>
+                            <input type="text" class="input_mid form-control">
+                            <p class="input_bottom"><span class="star">*</span>小于30字</p>
+                        </div>
+                        <div class="summary col-lg-12">
+                            <p class="input_top"><span class="star">*</span>会议概述</p>
+                            <textarea name="" id="gaishu" cols="30" rows="5" class="input_mid"></textarea><p class="input_bottom"><span class="star">*</span>小于500字</p>
+                        </div>
+                        <div class="theme col-lg-12">
+                            <p class="input_top"><span class="star">*</span>会议主题</p>
+                            <table class="table table-bordered">
+                               <thead>
+                                <tr>
+                                    <td style="width: 32%">主题简述</td>
+                                    <td style="width: 32%">发言人</td>
+                                    <td style="width: 32%">时长</td>
+                                    <td>操作</td>
+                                </tr>
+                               </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="page_wrap"><input type="text" class="form-control"></td>
+                                    <td class="page_wrap"><input type="text" class="form-control"></td>
+                                    <td class="page_wrap"><div class="input-group">
+                                        <input type="number" class="form-control" aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2">分钟</span>
+                                    </div></td>
+                                    <td class="page_wrap"><input class="btn btn-default add_btn" type="button" value="添加"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h3 class="caption">其他设置</h3>
+                    <div class="con row">
+                        <div class="join  page_wrap more">
+                            <p>参会人员：</p>
+                            <input type="radio" name="personnel" value="all" id="all"> <label for="all"> 全体员工</label>
+                            <input type="radio" name="personnel" value="part" id="part" checked> <label for="part"> 邀请员工</label>
+                            <input class="btn btn-default add add_per" type="button" value="添加员工">
+                            <!--<table class="box">-->
+                                <!--<tr>-->
+                                <!--<td class="department col-xs-3">-->
+                                    <!--<span class="department_name">管理打完额部</span>-->
+                                    <!--<span class="glyphicon glyphicon-remove delete"></span>-->
+                                <!--</td>-->
+                                <!--<td class="selected   col-xs-9">-->
+                                    <!--<span class="person"><span class="person_name">赵勇打完爱我</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打完爱我</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打完爱我</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打完爱我</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--<span class="person"><span class="person_name">赵勇打完爱我</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        </div>
+                        <div class="data more page_wrap">
+                            <p>添加资料：</p>
+                            <input class="btn btn-default" type="button" value="选择资料">
+                            <span class="btn_right">*附件数不能超过10个，总附件小于200M</span>
+                            <div class="file clearfix">
+                                <span class="file_name file_left"><span class="glyphicon glyphicon-file"></span>1.jpg</span>
+                                <span class="file_name file_right"><span class="glyphicon glyphicon-file"></span>1.jpg</span>
+                                <span class="file_name file_left"><span class="glyphicon glyphicon-file"></span>1.jpg</span>
+                                <span class="file_name file_right"><span class="glyphicon glyphicon-file"></span>1.jpg</span>
+                            </div>
+                            资料共享
+                            <input type="radio" name="data" value="all" id="file_all"> <label for="file_all"> 全体员工</label>
+                            <input type="radio" name="data" value="part" id="file_part" checked> <label for="file_part"> 邀请员工</label>
+                            <input class="btn btn-default add add_per" type="button" value="添加员工">
+                            <!--<table class="box">-->
+                                <!--<tr>-->
+                                    <!--<td class="department col-xs-3">-->
+                                        <!--<span class="department_name">管理打完额部</span>-->
+                                        <!--<span class="glyphicon glyphicon-remove delete"></span>-->
+                                    <!--</td>-->
+                                    <!--<td class="selected   col-xs-9">-->
+                                        <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                            <!--<table class="box">-->
+                                <!--<tr>-->
+                                    <!--<td class="department col-xs-3">-->
+                                        <!--<span class="department_name">管理打完额部</span>-->
+                                        <!--<span class="glyphicon glyphicon-remove delete"></span>-->
+                                    <!--</td>-->
+                                    <!--<td class="selected   col-xs-9">-->
+                                        <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        </div>
+                        <div class="comment more">
+                            <p>评论设置：</p>
+                            <input type="radio" name="comment" value="all" id="comment_close"> <label for="comment_close"> 关闭评论</label>
+                            <input type="radio" name="comment" value="part" id="comment_open" checked> <label for="comment_open"> 开启评论</label>
+                            <input type="radio" name="comment" value="part" id="anonymous" checked> <label for="anonymous"> 匿名评论</label>
+                        </div>
+                        <div class="vote more">
+                            <p>投票设置：</p>
+                            <input type="radio" name="vote" value="all" id="vote_close"> <label for="vote_close"> 关闭投票</label>
+                            <input type="radio" name="vote" value="part" id="vote_open" checked> <label for="vote_open"> 开启投票</label>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td style="width: 96%">投票项</td>
+                                    <td>操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="page_wrap"><input type="text" class="form-control"></td>
+                                    <td class="page_wrap"><input class="btn btn-default del" type="button" value="删除"></td>
+                                </tr>
+                                <tr>
+                                    <td class="page_wrap"><input type="text" class="form-control"></td>
+                                    <td class="page_wrap"><input class="btn btn-default add_btn" type="button" value="添加" ></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="experience more">
+                            <p>心得设置：</p>
+                            <input type="radio" name="experience" value="all" id="experience_close"> <label for="experience_close"> 关闭心得</label>
+                            <input type="radio" name="experience" value="part" id="experience_open" checked="checked"> <label for="experience_open" style="margin-right: 50px"> 开启心得</label>
+
+                            <input type="radio" name="experience_person" value="all" id="experience_all"> <label for="experience_all"> 与会人员</label>
+                            <input type="radio" name="experience_person" value="part" id="experience_part" checked="checked"> <label for="experience_part"> 邀请员工</label>
+                            <input class="btn btn-default add add_per" type="button" value="添加员工">
+                            <!--<table class="box">-->
+                                <!--<tr>-->
+                                    <!--<td class="department col-xs-3">-->
+                                        <!--<span class="department_name">设计部</span>-->
+                                        <!--<span class="glyphicon glyphicon-remove delete"></span>-->
+                                    <!--</td>-->
+                                    <!--<td class="selected   col-xs-9">-->
+                                        <!--<span class="person"><span class="person_name">赵勇打</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                            <!--<table class="box">-->
+                                <!--<tr>-->
+                                    <!--<td class="department col-xs-3">-->
+                                        <!--<span class="department_name">开发部</span>-->
+                                        <!--<span class="glyphicon glyphicon-remove delete"></span>-->
+                                    <!--</td>-->
+                                    <!--<td class="selected   col-xs-9">-->
+                                        <!--<span class="person"><span class="person_name">放松放松</span><span class="glyphicon glyphicon-remove delete"></span></span>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="main_bottom">
+            <div class="content">
+                <div class="con page_wrap clearfix text-right">
+                    <button type="button" class="btn btn-default" id="back">返回列表</button>
+                    <button type="button" class="btn btn-primary">暂存会议</button>
+                    <button type="button" class="btn btn-success">发布会议</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加员工</h4>
+                </div>
+                <div class="modal-body">
+                    <ul id="tree" class="ztree">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary btn_ztree">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script>
+    var treeNodes = [
+        {
+            name:"设计部",
+            open:true,
+            children:[
+                {name:"打打打"},
+                {name:"广告人格"},
+                {name:"是粉色"},
+                {name:"无法"},
+                {name:"固定岗位"}
+            ]
+        },
+        {
+            name:"管理部",
+            open:true,
+            children:[
+                {name:"粉色粉色"},
+                {name:"风味儿"},
+                {name:"肯额"},
+                {name:"ewfw"},
+                {name:"粉色粉色"},
+                {name:"风味儿"},
+                {name:"肯额"},
+                {name:"ewfw"}
+            ]
+        },
+        {
+            name:"开发部",
+            open:true,
+            children:[
+                {name:"打完饭"},
+                {name:"交给她她"},
+                {name:"集团"},
+                {name:"后放入"}
+            ]
+        }
+    ];
+    var setting={
+        check:{
+            enable:true
+        } //每个节点上是否显示 CheckBox
+    };
+
+
+
+    $(function () {
+//        $("#calendar").kendoCalendar();
+//        var calendar = $("#calendar").data("kendoCalendar");
+//        calendar.value(new Date());
+        $("#datetimepicker").kendoDateTimePicker();
+
+
+        $("#back").click(function () {
+            history.go(-1);
+        });
+        $(".box:nth-of-type(even)").find(".department").css("background","#A4BBC6");
+
+
+        $(".more").delegate(".selected .delete","click", function () {
+            if($(this).parent().siblings().length==0){
+                $(this).parents("table").remove();
+            }
+            $(this).parent().remove();
+
+        });
+
+        $(".more").delegate(".department .delete","click", function () {
+            $(this).parents("table").remove();
+        });
+
+        var that;
+        $(".add_btn").click(function () {
+            var theme=$(this).parents("tr").clone(true);
+            theme.find(".add_btn").replaceWith('<input class="btn btn-default del" type="button" value="删除">');
+            $(this).parents("tr").before(theme);   $(this).parent().siblings().find("input").val("")
+        });
+        $("table").delegate("td .del","click", function () {
+            $(this).parents("tr").remove();
+        });
+
+        $(".add_per").click(function () {
+             that=this;
+            var zTree=$.fn.zTree.init($("#tree"), setting, treeNodes);
+            $("#myModal").modal('toggle');
+
+        });
+        $(".btn_ztree").click(function () {
+            if(!that){
+                return;
+            }
+            $(that).parent().find("table").remove();
+            var treeObj = $.fn.zTree.getZTreeObj("tree");
+            var nodes = treeObj.getCheckedNodes(true);
+
+            for(i in nodes){
+                if(nodes[i].isParent){
+                    var bumen=$('<table class="box"><tr> <td class="department col-xs-3"> <span class="department_name">'+nodes[i].name+'</span> <span class="glyphicon glyphicon-remove delete"></span> </td> <td class="selected   col-xs-9"> </td></tr> </table>');
+                    $(that).after(bumen);
+                    for(j in nodes[i].children){
+                        if(nodes[i].children[j].checked){
+                            var renyuan=$('<span class="person"><span class="person_name">'+nodes[i].children[j].name+'</span><span class="glyphicon glyphicon-remove delete"></span></span>');
+                            bumen.find('.selected').append(renyuan);
+                        }
+                    }
+                }
+            }
+            $(".box:nth-of-type(odd)").find(".department").css("background","#BEB9C6");
+            $(".box:nth-of-type(even)").find(".department").css("background","#A4BBC6");
+            $("#myModal").modal('toggle');
+        })
+
+
+
+        
+    })
+</script>
+</html>
