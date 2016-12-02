@@ -1,0 +1,9 @@
+.weui_icon_toast_error {
+    margin: 22px 0 0;
+    display: block;
+}
+.weui_icon_toast_error:before {
+    content: '\EA03';
+    color: #FFFFFF;
+    font-size: 55px;
+}

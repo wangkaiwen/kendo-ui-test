@@ -1,0 +1,83 @@
+/**自定义bootstrap控件样式**/
+
+/**文字展示**/
+.page_wrap .form-control-static{
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/**页面Tab系列**/
+.page_wrap .navtabs_container .nav.nav-tabs li {
+    padding-left: 15px;
+}
+
+/**面板系列**/
+.page_wrap .panel{
+    border-radius: 0;
+}
+
+.page_wrap .panel-default > .panel-heading {
+    background-image: none;
+}
+
+.panel-heading.heading-bg-ffffff{
+    background-color: #ffffff;
+}
+
+.panel-heading.heading-bg-f7f6ed{
+    background-color: #f7f6ed;
+}
+
+.panel-heading .form-group{
+    margin-bottom: 0;
+}
+
+.panel-footer.footer-bg-f7f6ed{
+    background-color: #f7f6ed;
+}
+
+/**按钮系列**/
+.page_wrap .btn{
+    border-radius: 0;
+}
+
+.page_wrap .btn-primary {
+    background-image: none;
+}
+
+.page_wrap .btn-info {
+    background-image: none;
+}
+
+.page_wrap .btn-success {
+    background-image: none;
+}
+
+.page_wrap .btn-error {
+    background-image: none;
+}
+
+.page_wrap .btn-default {
+    background-image: none;
+}
+
+.page_wrap .btn-danger {
+    background-image: none;
+}
+
+/**输入框**/
+.page_wrap input{
+    border-radius: 0;
+}
+
+.page_wrap .input-group-addon{
+    border-radius: 0;
+}
+
+.page_wrap textarea{
+    border-radius: 0;
+}
+
+/**进度条**/
+.page_wrap .progress{
+    border-radius:0;
+}

@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+}
+
+html{
+	height: 100%;
+	width: 100%;
+	font-size: 62.5%;
+	overflow: hidden;
+}
+
+body {
+	font-size: 1.4rem;
+	background-color: #fff !important;
+	font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+	height: 100%;
+	overflow: hidden;
+}
+
+textarea {
+	resize: none;
+}
+
+/**公用样式**/
+.width-0pe{
+	width: 0%;
+}
+
+.width-100pe{
+	width: 100%;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+.form-group .important {
+	color: red;
+}
+
+.form-control-feedback{
+	display: none;
+}

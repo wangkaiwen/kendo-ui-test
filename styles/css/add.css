@@ -1,0 +1,170 @@
+.main_mid{
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.content{
+    margin: 0 auto;
+    width: 84%;
+}
+.content h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+.caption{
+    margin-left: -10%;
+    margin-top: 30px;
+}
+.content .con{
+    position: relative;
+    margin-top: 15px;
+}
+
+.input_top{
+    font-size: 16px;
+}
+.input_top .star{
+    color: red;
+    font-weight: bold;
+}
+.input_mid{
+    width: 100%;
+}
+.input_mid .k-picker-wrap{
+    height: 100%;
+    box-sizing: border-box;
+}
+.input_mid .k-datetimepicker .k-picker-wrap .k-icon{
+    margin-top: 3px;
+}
+.input_bottom{
+    color:#aaa;
+}
+#datetimepicker{
+    height: 100%;
+   padding: 6px 12px;
+    border-right: 1px solid #ccc;
+}
+#gaishu{
+    border-color: #ccc;
+}
+@media screen and (min-width: 1200px) {
+    .base div{
+        padding: 0;
+    }
+    .base .meeting_name,.base .host,.base .meeting_time{
+        padding-right:10px;
+    }
+    .base .place,.base .host,.base .meeting_time{
+        padding-left:10px;
+    }
+
+}
+
+
+
+.con .more{
+  margin-bottom: 20px;
+    overflow: hidden;
+}
+.more .add{
+    margin-left: 30px;
+}
+.con .box{
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    border: 1px solid #ccc;
+    border-collapse: separate;
+}
+.box .department{
+    background:#BEB9C6 ;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.box .department .delete{
+    float: right;
+    font-size: 20px;
+    font-weight:normal;
+    cursor: pointer;
+}
+
+.selected{
+    padding: 0 5px;
+}
+.selected .person{
+    text-align: center;
+    white-space:nowrap;
+    width: 110px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    height: 24px;
+    padding: 0 5px;
+    line-height: 24px;
+    background: #ccc;
+    margin-left: 10px;
+    margin-top: 8px;
+    position: relative;
+}
+.selected .person_name{
+    overflow: hidden;
+    white-space:nowrap;
+    width: 90px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.selected .delete{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-weight:normal;
+    cursor: pointer;
+}
+
+label{
+    font-weight: normal;
+    margin-right: 10px;
+}
+.btn_right{
+    color:#aaa;
+}
+.file{
+    margin-bottom: 10px;
+}
+.file_name{
+    display: inline-block;
+    width: 49.5%;
+    line-height: 30px;
+    background: #F5F5F5;
+    height:30px;
+    padding-left: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+.file .glyphicon-file{
+    color: #695C3F;
+}
+.file_left{
+    float: left;
+}
+.file_right{
+    float: right;
+}
+
+
+.ztree li span.button.ico_open{
+    background-image: url("../../scripts/ztree/img/diy/users_open.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.ztree li span.button.ico_close{
+    background-image: url("../../scripts/ztree/img/diy/users_close.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.ztree li span.button.ico_docu{
+    background-image: url("../../scripts/ztree/img/diy/user.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}

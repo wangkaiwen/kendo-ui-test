@@ -1,0 +1,76 @@
+
+.meeting_name{
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 40%;
+}
+
+.panel-default>.panel-heading{
+    background: #F7F6ED;
+}
+.panel-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.panel-body .num{
+   display: inline-block;
+    width: 33%;
+    min-width: 120px;
+}
+.panel-body .content{
+    padding: 8px;
+    border:1px solid #ccc;
+}
+.vote{
+    height: 35px;
+    line-height: 35px;
+}
+.progress{
+    display: inline-block;
+    width: 30%;
+    margin-bottom: 0;
+    margin-right: 5%;
+    position: relative;
+    top: 5px;
+}
+
+.content{
+    position: relative;
+    height: auto;
+}
+.content_left{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 23%;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+.content .info{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.content_right{
+    width: 77%;
+    float:right;
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
+}
+.content p{
+    margin: 0;
+}
+.content .person{
+    font-size: 18px;
+    font-weight: bold;
+}
+.content_title{
+    color:#bbb;
+}
+.content_main{
+    font-size: 16px;
+}

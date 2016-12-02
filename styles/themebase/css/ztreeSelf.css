@@ -1,0 +1,51 @@
+.zTreeContentShow{
+	width: 100%;
+	overflow: auto;
+} 
+
+.zTreeContentChoose{
+	display: none;
+	width: 100%;
+	position: absolute;
+	z-index: 10;
+	background: #F2F2F2;
+	border: 1px solid #ccc;
+	overflow: auto;
+} 
+
+.zTreeContentShow>ul.ztree{
+	width: 100%;
+} 
+
+.zTreeContentChoose>ul.ztree{
+	width: 100%;
+} 
+
+.ztree li ul.line{
+	border: initial;
+	width: initial;
+	height: initial;
+}
+
+.ztree .selfIcon{
+	position: absolute;
+	margin-left: 5px;
+	margin-top: 6px;
+	cursor: pointer;
+}
+
+.ztree .selfIcon .editIcon{
+	background: url("../../../scripts/ztree/img/diy/2.png");
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.ztree .selfIcon .deleteIcon{
+	background: url("../../../scripts/ztree/img/diy/remove.png");
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    display: inline-block;
+}

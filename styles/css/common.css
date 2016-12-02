@@ -1,0 +1,53 @@
+body,html{
+    overflow: auto;
+}
+header{
+    height: 70px;
+    width: 100%;
+    background: #E8E2D1;
+    position: relative;
+    min-width: 1024px;
+    border-bottom: 2px solid #E8E5D7;
+    overflow: hidden;
+}
+.top_left{
+    position: absolute;
+    left: 0;top: 0;
+}
+.top_mid{
+    position: absolute;
+    left: 250px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+}
+.top_right{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+.main{
+    padding: 24px;
+    background: #FEFDF6;
+    min-width: 990px;
+}
+.main_top{
+    margin-bottom: 20px;
+}
+.title{
+    font-size: 18px;
+    color:#685C3F;
+}
+.main_top button{
+    float: right;
+}
+.main_top a:hover{
+    color:#685C3F;
+}
+.index_level{
+    font-size: 16px;
+    color:#9999B0;
+}
