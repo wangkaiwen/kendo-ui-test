@@ -8,7 +8,7 @@ var meeting=[{
         more:{
             host:"XXX",
             meeting_time:"2016-03-04 14:00",
-            place:"粉色粉色很听话",
+            place:"随便一个地方",
             person:"管理员",
             release_time:"2016-03-04 14:10:08",
             update_time:"2016-03-04 14:30:08"
